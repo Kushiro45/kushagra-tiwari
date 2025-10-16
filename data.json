@@ -3,7 +3,6 @@
   
   "skills": [
     "Penetration Testing",
-    "Web Application Security",
     "Network Security",
     "Binary Exploitation",
     "Reverse Engineering",
@@ -23,7 +22,6 @@
     "John the Ripper",
     "Aircrack-ng",
     "Docker/Kubernetes",
-    "AWS Security",
     "OSINT Techniques",
     "Digital Forensics",
     "Malware Analysis"
@@ -31,34 +29,19 @@
   
   "projects": [
     {
-      "title": "Automated Network Vulnerability Scanner",
-      "description": "Python-based automated vulnerability scanning tool that identifies misconfigurations, open ports, outdated services, and potential security flaws across network infrastructure. Features include multi-threaded scanning, custom exploit modules, and detailed reporting with remediation suggestions.",
-      "link": "https://github.com/yourusername/vuln-scanner"
+      "title": "Secure Netra",
+      "description": "Engineered a full-stack, secure NVR platform to protect CCTV infrastructure using a React-based SOC dashboard and a Node.js backend. Implemented a multi-layered defense with a real-time IDS/IPS, Role-Based Access Control (RBAC), and end-to-end TLS encryption.",
+      "link": "https://github.com/UnDeadBandit/Cyber-Challenge-CCTV-Cyber-Warriors.git"
     },
     {
-      "title": "Password Strength Analyzer & Generator",
-      "description": "Advanced password security tool that analyzes password entropy, checks against known breaches using haveibeenpwned API, and generates cryptographically secure passwords. Includes zxcvbn integration for realistic strength estimation.",
-      "link": "https://github.com/yourusername/password-tool"
+      "title": "Honeytrack",
+      "description": "Deployed a Cowrie SSH/Telnet honeypot on a public Raspberry Pi to capture real-world attacker data. Securely pipelined logs to a centralized ELK Stack, creating Kibana dashboards to analyze and visualize attacker TTPs (Tactics, Techniques, and Procedures).",
+      "link": "https://github.com/HoneyTrack/HoneyTrack-SSH.git"
     },
     {
-      "title": "Web Application Security Testing Framework",
-      "description": "Custom-built framework for automated security testing of web applications. Focuses on OWASP Top 10 vulnerabilities including SQL injection, XSS, CSRF, and authentication bypasses. Supports custom payload dictionaries and detailed vulnerability reports.",
-      "link": "https://github.com/yourusername/web-sec-framework"
-    },
-    {
-      "title": "Encrypted Communication Tool",
-      "description": "End-to-end encrypted messaging application using AES-256 encryption and perfect forward secrecy. Built with Python and Socket programming for secure peer-to-peer communication.",
-      "link": ""
-    },
-    {
-      "title": "Packet Analyzer & Network Monitor",
-      "description": "Real-time network traffic analyzer that captures and dissects packets, identifies suspicious patterns, and alerts on potential security threats. Features protocol analysis and export functionality.",
-      "link": "https://github.com/yourusername/packet-analyzer"
-    },
-    {
-      "title": "CTF Challenge Platform",
-      "description": "Designed and deployed a Jeopardy-style CTF platform for local cybersecurity community. Includes dynamic flag generation, scoreboard, and hint system.",
-      "link": ""
+      "title": "LinuxAdmin",
+      "description": "Engineered a security monitoring platform by deploying and integrating industry-standard open-source tools. Deployed Wazuh (XDR/SIEM) for real-time threat detection and integrated MeshCentral for secure, role-based remote administration of Linux endpoints.",
+      "link": "confidential"
     }
   ],
   
@@ -97,40 +80,13 @@
   
   "articles": [
     {
-      "title": "Understanding SQL Injection: From Basics to Advanced Exploitation",
-      "date": "Jan 15, 2025",
+      "title": "AI on the Case: Revolutionizing Cyber Crime Investigation",
+      "date": "Oct 16, 2025",
       "readTime": "12 min read",
-      "excerpt": "A comprehensive deep dive into SQL injection vulnerabilities covering detection methodologies, exploitation techniques including blind SQLi and time-based attacks, and defense strategies. Includes real-world examples and lab demonstrations.",
-      "link": "articles/article1.html"
-    },
-    {
-      "title": "Building Your First Cybersecurity Home Lab",
-      "date": "Dec 20, 2024",
-      "readTime": "15 min read",
-      "excerpt": "Complete guide to setting up a professional-grade home security lab. Covers virtualization with VirtualBox/VMware, configuring Kali Linux, deploying vulnerable machines, network segmentation, and creating realistic attack scenarios for practice.",
-      "link": "articles/article2.html"
-    },
-    {
-      "title": "Mastering OSINT: Advanced Information Gathering Techniques",
-      "date": "Nov 10, 2024",
-      "readTime": "10 min read",
-      "excerpt": "Exploring advanced Open Source Intelligence techniques for reconnaissance. Covers search engine dorking, social media OSINT, metadata analysis, and automated OSINT frameworks. Essential reading for penetration testers.",
-      "link": "articles/osint-techniques.html"
-    },
-    {
-      "title": "Buffer Overflow Exploitation: A Practical Guide",
-      "date": "Oct 5, 2024",
-      "readTime": "18 min read",
-      "excerpt": "Hands-on tutorial for exploiting stack-based buffer overflows. Includes shellcode development, bypassing DEP/ASLR protections, and Return-Oriented Programming (ROP) techniques. Features step-by-step exploitation of vulnerable binaries.",
-      "link": "articles/buffer-overflow.html"
-    },
-    {
-      "title": "Web Application Penetration Testing Methodology",
-      "date": "Sep 12, 2024",
-      "readTime": "14 min read",
-      "excerpt": "Professional methodology for web application security assessments. Covers reconnaissance, vulnerability identification, exploitation, and reporting. Based on OWASP Testing Guide and real penetration testing experience.",
-      "link": "articles/webapp-pentest-methodology.html"
+      "excerpt": " The future of cybercrime investigation lies not in replacing human intuition, but in forging a powerful partnership between investigator and machin, a collaboration poised to redefine digital justice.",
+      "link": "./articles/article2.html"
     }
+
   ],
   
   "videos": [
