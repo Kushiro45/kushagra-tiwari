@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .article-title {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .article-body {
+            color: var(--light-gray);
+            line-height: 2;
+        }
+
+        .article-body h2 {
+            color: var(--red);
+            margin: 2rem 0 1rem;
+            font-size: 2rem;
+        }
+
+        .article-body h2::before {
+            content: '# ';
+        }
+
+        .article-body h3 {
+            color: var(--red);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .article-body h3::before {
+            content: '## ';
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body code {
+            background-color: var(--dark-gray);
+            padding: 0.2rem 0.5rem;
+            color: var(--red);
+            border: 1px solid var(--gray);
+            border-radius: 3px;
+        }
+
+        .article-body pre {
+            background-color: var(--black);
+            border: 1px solid var(--red);
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            padding: 0;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--red);
+            text-decoration: none;
+            border: 1px solid var(--red);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: var(--red);
+            color: var(--black);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CYBERPORT</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../articles.html" class="active">Articles</a></li>
+                <li><a href="../videos.html">Videos</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-content">
+        <a href="../articles.html" class="back-link">Back to Articles</a>
+
+        <div class="article-header">
+            <h1 class="article-title">Understanding SQL Injection: From Basics to Advanced</h1>
+            <div class="article-meta">Published: January 15, 2025 • 10 min read</div>
+        </div>
+
+        <div class="article-body">
+            <h2>Introduction</h2>
+            <p>
+                SQL Injection remains one of the most critical web application vulnerabilities, consistently appearing in the OWASP Top 10. 
+                Despite being well-known, many applications still fall victim to this attack vector. In this comprehensive guide, 
+                we'll explore SQL injection from the ground up, covering detection, exploitation, and prevention strategies.
+            </p>
+
+            <h2>What is SQL Injection?</h2>
+            <p>
+                SQL Injection (SQLi) is a code injection technique that exploits security vulnerabilities in an application's database layer. 
+                Attackers can manipulate SQL queries by inserting malicious SQL code into input fields, potentially gaining unauthorized 
+                access to sensitive data, modifying database contents, or even executing administrative operations.
+            </p>
+
+            <h3>Types of SQL Injection</h3>
+            <ul>
+                <li><strong>In-band SQLi</strong> - Results displayed directly in the application</li>
+                <li><strong>Blind SQLi</strong> - No direct output, relies on application behavior</li>
+                <li><strong>Out-of-band SQLi</strong> - Data exfiltration through different channels</li>
+            </ul>
+
+            <h2>Basic Example</h2>
+            <p>Consider a vulnerable login form with this SQL query:</p>
+
+            <pre><code>SELECT * FROM users WHERE username = 'admin' AND password = 'password123'</code></pre>
+
+            <p>An attacker could input the following as the username:</p>
+
+            <pre><code>admin' OR '1'='1' --</code></pre>
+
+            <p>This transforms the query into:</p>
+
+            <pre><code>SELECT * FROM users WHERE username = 'admin' OR '1'='1' --' AND password = 'password123'</code></pre>
+
+            <p>
+                The <code>--</code> comments out the rest of the query, and <code>'1'='1'</code> is always true, 
+                bypassing authentication.
+            </p>
+
+            <h2>Detection Techniques</h2>
+            <p>Before exploitation, you need to identify vulnerable parameters:</p>
+
+            <h3>1. Single Quote Test</h3>
+            <p>Insert a single quote <code>'</code> into input fields. If you receive a SQL error, the parameter is likely vulnerable.</p>
+
+            <h3>2. Boolean-Based Detection</h3>
+            <pre><code>
+' OR 1=1 --
+' OR 1=2 --
+            </code></pre>
+            <p>If different responses occur, the application is vulnerable to boolean-based blind SQLi.</p>
+
+            <h3>3. Time-Based Detection</h3>
+            <pre><code>
+' OR SLEEP(5) --
+' OR pg_sleep(5) --
+            </code></pre>
+            <p>If the application delays, time-based blind SQLi is possible.</p>
+
+            <h2>Exploitation</h2>
+            <p>Once a vulnerability is confirmed, you can extract data systematically:</p>
+
+            <h3>Database Enumeration</h3>
+            <pre><code>
+' UNION SELECT NULL, database(), NULL --
+' UNION SELECT NULL, table_name, NULL FROM information_schema.tables --
+' UNION SELECT NULL, column_name, NULL FROM information_schema.columns WHERE table_name='users' --
+            </code></pre>
+
+            <h2>Prevention</h2>
+            <p>Protecting against SQL injection requires multiple layers of defense:</p>
+
+            <h3>1. Prepared Statements</h3>
+            <pre><code>
+// Python example
+cursor.execute("SELECT * FROM users WHERE username = ? AND password = ?", (username, password))
+            </code></pre>
+
+            <h3>2. Input Validation</h3>
+            <p>Validate and sanitize all user inputs. Use whitelists, not blacklists.</p>
+
+            <h3>3. Least Privilege</h3>
+            <p>Database accounts should have minimum required permissions.</p>
+
+            <h3>4. Web Application Firewall</h3>
+            <p>Implement a WAF to detect and block SQL injection attempts.</p>
+
+            <h2>Conclusion</h2>
+            <p>
+                SQL Injection continues to be a prevalent vulnerability due to poor coding practices and lack of security awareness. 
+                By understanding how these attacks work and implementing proper defenses, developers can significantly reduce the 
+                risk of SQL injection vulnerabilities in their applications.
+            </p>
+
+            <p>
+                Remember: security is not a one-time implementation but an ongoing process. Regular security audits, code reviews, 
+                and penetration testing are essential to maintaining a secure application.
+            </p>
+        </div>
+
+        <a href="../articles.html" class="back-link">Back to Articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 | Ethical Hacking • Security Research • CTF Enthusiast</p>
+    </footer>
+
+    <script src="../matrix.js"></script>
+</body>
+</html>

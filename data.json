@@ -1,0 +1,160 @@
+{
+  "about": "I'm a cybersecurity student passionate about ethical hacking, penetration testing, and securing digital infrastructure. My journey into security began with competitive CTF challenges and has evolved into hands-on research and tool development. I specialize in web application security, network penetration testing, and binary exploitation. Currently seeking opportunities to contribute to the security community while continuing to expand my knowledge in offensive security and vulnerability research.",
+  
+  "skills": [
+    "Penetration Testing",
+    "Web Application Security",
+    "Network Security",
+    "Binary Exploitation",
+    "Reverse Engineering",
+    "Cryptography",
+    "Linux System Administration",
+    "Python Development",
+    "Bash Scripting",
+    "C/C++",
+    "Assembly",
+    "JavaScript",
+    "Metasploit Framework",
+    "Burp Suite Professional",
+    "Wireshark",
+    "Nmap/Nessus",
+    "IDA Pro/Ghidra",
+    "SQLMap",
+    "John the Ripper",
+    "Aircrack-ng",
+    "Docker/Kubernetes",
+    "AWS Security",
+    "OSINT Techniques",
+    "Digital Forensics",
+    "Malware Analysis"
+  ],
+  
+  "projects": [
+    {
+      "title": "Automated Network Vulnerability Scanner",
+      "description": "Python-based automated vulnerability scanning tool that identifies misconfigurations, open ports, outdated services, and potential security flaws across network infrastructure. Features include multi-threaded scanning, custom exploit modules, and detailed reporting with remediation suggestions.",
+      "link": "https://github.com/yourusername/vuln-scanner"
+    },
+    {
+      "title": "Password Strength Analyzer & Generator",
+      "description": "Advanced password security tool that analyzes password entropy, checks against known breaches using haveibeenpwned API, and generates cryptographically secure passwords. Includes zxcvbn integration for realistic strength estimation.",
+      "link": "https://github.com/yourusername/password-tool"
+    },
+    {
+      "title": "Web Application Security Testing Framework",
+      "description": "Custom-built framework for automated security testing of web applications. Focuses on OWASP Top 10 vulnerabilities including SQL injection, XSS, CSRF, and authentication bypasses. Supports custom payload dictionaries and detailed vulnerability reports.",
+      "link": "https://github.com/yourusername/web-sec-framework"
+    },
+    {
+      "title": "Encrypted Communication Tool",
+      "description": "End-to-end encrypted messaging application using AES-256 encryption and perfect forward secrecy. Built with Python and Socket programming for secure peer-to-peer communication.",
+      "link": ""
+    },
+    {
+      "title": "Packet Analyzer & Network Monitor",
+      "description": "Real-time network traffic analyzer that captures and dissects packets, identifies suspicious patterns, and alerts on potential security threats. Features protocol analysis and export functionality.",
+      "link": "https://github.com/yourusername/packet-analyzer"
+    },
+    {
+      "title": "CTF Challenge Platform",
+      "description": "Designed and deployed a Jeopardy-style CTF platform for local cybersecurity community. Includes dynamic flag generation, scoreboard, and hint system.",
+      "link": ""
+    }
+  ],
+  
+  "ctf": [
+    {
+      "event": "PicoCTF 2024",
+      "rank": "Top 100 Globally",
+      "date": "March 2024",
+      "description": "Achieved top 100 ranking among 10,000+ participants. Solved 45+ challenges across cryptography, binary exploitation, reverse engineering, web exploitation, and forensics categories. Specialized in advanced binary pwn and crypto challenges."
+    },
+    {
+      "event": "HTB University CTF 2023",
+      "rank": "5th Place (Team)",
+      "date": "December 2023",
+      "description": "Competed as part of a 4-member team in university CTF focusing on real-world penetration testing scenarios. Personally contributed to 8 machine compromises and full domain takeover. Led the privilege escalation efforts."
+    },
+    {
+      "event": "CyberDefenders Blue Team Challenge",
+      "rank": "Top 50",
+      "date": "October 2023",
+      "description": "Participated in defensive security challenges focusing on digital forensics, incident response, and threat hunting. Analyzed compromised systems, identified attack vectors, and reconstructed timeline of security incidents."
+    },
+    {
+      "event": "Google CTF 2023",
+      "rank": "Participant",
+      "date": "June 2023",
+      "description": "Solved multiple challenges in web security and reverse engineering categories. Gained experience with advanced exploitation techniques and security research methodologies."
+    },
+    {
+      "event": "DEF CON 31 CTF Qualifier",
+      "rank": "Qualifier Participant",
+      "date": "May 2023",
+      "description": "Competed in one of the most challenging CTFs globally. Focused on binary exploitation and reverse engineering challenges. Learned advanced techniques from top security researchers."
+    }
+  ],
+  
+  "articles": [
+    {
+      "title": "Understanding SQL Injection: From Basics to Advanced Exploitation",
+      "date": "Jan 15, 2025",
+      "readTime": "12 min read",
+      "excerpt": "A comprehensive deep dive into SQL injection vulnerabilities covering detection methodologies, exploitation techniques including blind SQLi and time-based attacks, and defense strategies. Includes real-world examples and lab demonstrations.",
+      "link": "articles/sql-injection.html"
+    },
+    {
+      "title": "Building Your First Cybersecurity Home Lab",
+      "date": "Dec 20, 2024",
+      "readTime": "15 min read",
+      "excerpt": "Complete guide to setting up a professional-grade home security lab. Covers virtualization with VirtualBox/VMware, configuring Kali Linux, deploying vulnerable machines, network segmentation, and creating realistic attack scenarios for practice.",
+      "link": "articles/home-lab-guide.html"
+    },
+    {
+      "title": "Mastering OSINT: Advanced Information Gathering Techniques",
+      "date": "Nov 10, 2024",
+      "readTime": "10 min read",
+      "excerpt": "Exploring advanced Open Source Intelligence techniques for reconnaissance. Covers search engine dorking, social media OSINT, metadata analysis, and automated OSINT frameworks. Essential reading for penetration testers.",
+      "link": "articles/osint-techniques.html"
+    },
+    {
+      "title": "Buffer Overflow Exploitation: A Practical Guide",
+      "date": "Oct 5, 2024",
+      "readTime": "18 min read",
+      "excerpt": "Hands-on tutorial for exploiting stack-based buffer overflows. Includes shellcode development, bypassing DEP/ASLR protections, and Return-Oriented Programming (ROP) techniques. Features step-by-step exploitation of vulnerable binaries.",
+      "link": "articles/buffer-overflow.html"
+    },
+    {
+      "title": "Web Application Penetration Testing Methodology",
+      "date": "Sep 12, 2024",
+      "readTime": "14 min read",
+      "excerpt": "Professional methodology for web application security assessments. Covers reconnaissance, vulnerability identification, exploitation, and reporting. Based on OWASP Testing Guide and real penetration testing experience.",
+      "link": "articles/webapp-pentest-methodology.html"
+    }
+  ],
+  
+  "videos": [
+    {
+      "title": "Full Web Application Penetration Test Walkthrough",
+      "url": "videos/webapp-pentest-demo.mp4",
+      "description": "Complete demonstration of testing a vulnerable web application from reconnaissance to post-exploitation. Covers OWASP Top 10 vulnerabilities including SQL injection, XSS, CSRF, and authentication bypasses. Runtime: 25 minutes."
+    },
+    {
+      "title": "Network Traffic Analysis with Wireshark",
+      "url": "videos/wireshark-analysis.mp4",
+      "description": "In-depth tutorial on capturing and analyzing network packets to identify suspicious activity and potential security breaches. Includes real-world examples of detecting port scans, password sniffing, and malware communication. Runtime: 18 minutes."
+    },
+    {
+      "title": "CTF Writeup: Advanced Binary Exploitation Challenge",
+      "url": "videos/ctf-binary-exploitation.mp4",
+      "description": "Step-by-step solution to a challenging CTF reverse engineering and binary exploitation problem. Demonstrates dynamic analysis, identifying vulnerabilities, and crafting exploits. Runtime: 30 minutes."
+    }
+  ],
+  
+  "contact": {
+    "email": "your.email@example.com",
+    "github": "https://github.com/yourusername",
+    "linkedin": "https://linkedin.com/in/yourusername",
+    "twitter": "https://twitter.com/yourusername"
+  }
+}
