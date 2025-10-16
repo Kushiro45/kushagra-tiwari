@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CYBERPORT</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>Security researcher • Student • CTF player</p>
+        </div>
+
+        <div class="terminal-box">
+            <div class="terminal-header">root@portfolio:~$ whoami --verbose</div>
+            <div class="terminal-content" id="about-text">
+                Loading profile...
+            </div>
+        </div>
+
+        <div class="section-header">
+            <h2>Skills & Expertise</h2>
+            <p>Technical competencies and certifications</p>
+        </div>
+
+        <div class="skills-container" id="skills-container">
+            <!-- Skills loaded from JSON -->
+        </div>
+
+        <div class="section-header">
+            <h2>CTF Achievements</h2>
+            <p>Competitive hacking accomplishments</p>
+        </div>
+
+        <div class="grid" id="ctf-container">
+            <!-- CTF achievements loaded from JSON -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 | Ethical Hacking • Security Research • CTF Enthusiast</p>
+    </footer>
+
+    <script src="matrix.js"></script>
+    <script src="animate.js"></script>
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                
+                // Load about text
+                document.getElementById('about-text').textContent = data.about;
+                
+                // Load skills
+                const skillsContainer = document.getElementById('skills-container');
+                data.skills.forEach((skill, index) => {
+                    const skillDiv = document.createElement('div');
+                    skillDiv.className = 'skill-tag';
+                    skillDiv.textContent = skill;
+                    skillDiv.style.animationDelay = `${index * 0.05}s`;
+                    skillsContainer.appendChild(skillDiv);
+                });
+                
+                // Load CTF achievements
+                const ctfContainer = document.getElementById('ctf-container');
+                data.ctf.forEach(achievement => {
+                    const ctfDiv = document.createElement('div');
+                    ctfDiv.className = 'card';
+                    ctfDiv.innerHTML = `
+                        <div class="card-meta">[${achievement.date}] • ${achievement.rank}</div>
+                        <h3>${achievement.event}</h3>
+                        <p>${achievement.description}</p>
+                    `;
+                    ctfContainer.appendChild(ctfDiv);
+                });
+                
+                // Animate elements
+                document.querySelectorAll('.card, .skill-tag').forEach(el => {
+                    observer.observe(el);
+                });
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
