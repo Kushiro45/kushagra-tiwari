@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My DFIR Journey | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .article-title {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        .article-body {
+            color: var(--light-gray);
+            line-height: 2;
+        }
+
+        .article-body h2 {
+            color: var(--red);
+            margin: 2rem 0 1rem;
+            font-size: 2rem;
+        }
+
+        .article-body h2::before {
+            content: '# ';
+        }
+
+        .article-body h3 {
+            color: var(--red);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        .article-body h3::before {
+            content: '## ';
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body code {
+            background-color: var(--dark-gray);
+            padding: 0.2rem 0.5rem;
+            color: var(--red);
+            border: 1px solid var(--gray);
+            border-radius: 3px;
+        }
+
+        .article-body pre {
+            background-color: var(--black);
+            border: 1px solid var(--red);
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .article-body pre code {
+            background: none;
+            border: none;
+            color: var(--light-gray);
+            padding: 0;
+        }
+
+        .article-body ul, .article-body ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Style for the process flowchart */
+        .process-flow {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .process-flow li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+            border-left: 2px solid var(--red);
+            padding-bottom: 10px;
+        }
+        .process-flow li:last-child {
+            border-left: none;
+        }
+        .process-flow li::before {
+            content: '';
+            position: absolute;
+            left: -11px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--red);
+            border-radius: 50%;
+            border: 2px solid var(--black);
+        }
+        .process-flow li::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+        }
+
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--red);
+            text-decoration: none;
+            border: 1px solid var(--red);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: var(--red);
+            color: var(--black);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CYBERPORT</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../articles.html" class="active">Articles</a></li>
+                <li><a href="../videos.html">Videos</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="article-content">
+        <a href="../articles.html" class="back-link">Back to Articles</a>
+
+        <div class="article-header">
+            <h1 class="article-title">My Journey into Cyber Crime Investigation: From TryHackMe to Core Principles</h1>
+            <div class="article-meta">Published: October 17, 2025 • 8 min read</div>
+        </div>
+
+        <div class="article-body">
+            <p>
+                The world of cybersecurity is vast, but few areas are as captivating as Digital Forensics and Incident Response (DFIR). It’s the investigative branch of cyber defense, where professionals become digital detectives, piecing together evidence from the ones and zeros left behind after a security incident. My own curiosity led me to start a self-learning journey, beginning with the foundational <strong>TryHackMe Cybersecurity 101 path</strong>. This experience was not just about learning security concepts; it was about building the bedrock upon which all specialized knowledge, including digital forensics, must stand.
+            </p>
+            <p>
+                This article documents the core principles of a cyber crime investigation that I've learned, framing them through the lens of a self-taught student who started with the basics.
+            </p>
+
+            <h2>The Foundation: Why Cybersecurity 101 Matters</h2>
+            <p>
+                Before diving into forensics, it's crucial to understand what you're trying to protect and analyze. The TryHackMe path was invaluable for this. It covered essentials like:
+            </p>
+            <ul>
+                <li><strong>Networking Fundamentals:</strong> Understanding how data travels across a network (TCP/IP, DNS, HTTP) is non-negotiable. How can you analyze malicious network traffic if you don't know what normal traffic looks like?</li>
+                <li><strong>Linux and Windows Basics:</strong> An investigator must be comfortable navigating the file systems, permissions, and common command-line tools of the operating systems they are investigating. This is where the digital evidence resides.</li>
+                <li><strong>Web Application Security:</strong> Learning about common vulnerabilities like SQL Injection or Cross-Site Scripting (XSS) helps you recognize the footprints of an attack when you see them in server logs.</li>
+            </ul>
+            <p>
+                Completing this path armed me with a fundamental question for every piece of data: "Is this normal?" Answering that question is the heart of any investigation.
+            </p>
+
+            <h2>The Digital Forensics Process: A Structured Approach</h2>
+            <p>
+                A cyber crime investigation isn't a chaotic scramble for clues. It follows a strict, methodical process to ensure that the evidence discovered is accurate, complete, and admissible in a court of law. This process is generally broken down into five key stages.
+            </p>
+            
+            <ol class="process-flow">
+                <li><strong>Identification:</strong> An incident is declared and the scope is identified. What systems are affected? What is the nature of the breach?</li>
+                <li><strong>Preservation:</strong> Evidence is preserved by creating bit-for-bit forensic images. A strict chain of custody is maintained to ensure evidence integrity.</li>
+                <li><strong>Analysis:</strong> The core investigative work begins. The forensic image is examined for digital artifacts, timelines are built, and logs are analyzed.</li>
+                <li><strong>Documentation:</strong> Every step, tool, and finding is meticulously recorded to ensure the process is repeatable and findings are verifiable.</li>
+                <li><strong>Presentation:</strong> The final findings are compiled into a comprehensive report and presented to stakeholders, management, or legal teams.</li>
+            </ol>
+
+            <h3>1. Identification</h3>
+            <p>This is the starting point. It involves recognizing that a security incident has occurred. An alert from an Intrusion Detection System (IDS), a report from an employee about a suspicious email, or the discovery of ransomware on a server could all trigger this phase. The key here is to identify the scope: What systems are affected? What kind of incident is it (malware, data breach, unauthorized access)?</p>
+
+            <h3>2. Preservation</h3>
+            <p>Once an incident is identified, the most critical immediate step is to <strong>preserve the evidence</strong>. Digital evidence is incredibly fragile. Simply turning off a machine can erase vital information stored in its memory (RAM). The golden rule here is to <strong>work on a copy, never the original</strong>. Forensic investigators create a bit-for-bit copy of the storage media, known as a <strong>forensic image</strong>. This process also involves meticulous documentation called the <strong>Chain of Custody</strong>, a log that tracks all handling of the evidence.</p>
+
+            <h3>3. Analysis</h3>
+            <p>This is the core investigative phase where the real detective work happens. Using the forensic image, investigators employ specialized tools to uncover digital artifacts. This could involve file system analysis, recovering deleted files, timeline analysis, memory forensics, and sifting through gigabytes of log files.</p>
+
+            <h3>4. Documentation</h3>
+            <p>Throughout the analysis, every step, tool used, and piece of evidence found must be thoroughly documented. Good documentation ensures that the investigation is repeatable and that the findings can be understood and verified by others. If a case goes to court, this documentation is what gives the evidence its credibility.</p>
+
+            <h3>5. Presentation</h3>
+            <p>The final stage is presenting the findings. This might be an internal report for management, a detailed technical report for the IT security team, or even expert testimony in a court of law. The presentation summarizes what happened, how it happened, the impact, and recommendations for preventing future incidents.</p>
+
+            <h2>Key Tools and Next Steps for a Self-Learner</h2>
+            <p>My journey didn't end with understanding the theory. The next step is hands-on practice. The world of DFIR is full of incredible open-source tools that aspiring investigators can learn:</p>
+            <ul>
+                <li><strong>Autopsy:</strong> A graphical user interface for The Sleuth Kit, used for analyzing file systems and hard drives.</li>
+                <li><strong>Volatility:</strong> The industry-standard framework for memory analysis.</li>
+                <li><strong>Wireshark:</strong> The go-to tool for analyzing network traffic captures.</li>
+                <li><strong>SIFT Workstation / REMnux:</strong> Pre-built Linux distributions that come loaded with forensics and malware analysis tools.</li>
+            </ul>
+             <p>For those looking to continue their self-learning path, I would recommend exploring more advanced rooms on TryHackMe, participating in Capture The Flag (CTF) events with a forensics focus, and reading blogs from industry professionals.</p>
+
+            <h2>Conclusion</h2>
+            <p>
+                Embarking on a self-learning path in cyber crime investigation is a marathon, not a sprint. Starting with foundational knowledge like that provided in the TryHackMe Cybersecurity 101 path is the perfect first step. By understanding the methodical process of Identification, Preservation, Analysis, Documentation, and Presentation, you can begin to think like a digital forensics investigator. The journey from here is all about diving deeper, getting hands-on with the tools, and never stop asking, "What really happened here?"
+            </p>
+        </div>
+
+        <a href="../articles.html" class="back-link">Back to Articles</a>
+    </div>
+
+    <footer>
+        <p>© 2025 | Ethical Hacking • Security Research • CTF Enthusiast</p>
+    </footer>
+
+    <script src="../matrix.js"></script>
+</body>
+</html>
