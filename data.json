@@ -101,14 +101,14 @@
       "date": "Jan 15, 2025",
       "readTime": "12 min read",
       "excerpt": "A comprehensive deep dive into SQL injection vulnerabilities covering detection methodologies, exploitation techniques including blind SQLi and time-based attacks, and defense strategies. Includes real-world examples and lab demonstrations.",
-      "link": "articles/sql-injection.html"
+      "link": "articles/article1.html"
     },
     {
       "title": "Building Your First Cybersecurity Home Lab",
       "date": "Dec 20, 2024",
       "readTime": "15 min read",
       "excerpt": "Complete guide to setting up a professional-grade home security lab. Covers virtualization with VirtualBox/VMware, configuring Kali Linux, deploying vulnerable machines, network segmentation, and creating realistic attack scenarios for practice.",
-      "link": "articles/home-lab-guide.html"
+      "link": "articles/article2.html"
     },
     {
       "title": "Mastering OSINT: Advanced Information Gathering Techniques",
@@ -152,9 +152,8 @@
   ],
   
   "contact": {
-    "email": "your.email@example.com",
-    "github": "https://github.com/yourusername",
-    "linkedin": "https://linkedin.com/in/yourusername",
-    "twitter": "https://twitter.com/yourusername"
+    "email": "kushagra.17992@sakec.ac.in",
+    "github": "https://github.com/Kushiro45",
+    "linkedin": "https://www.linkedin.com/in/kushagra-tiwari-8b942028b/"
   }
 }
