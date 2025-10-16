@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CYBERPORT</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <div class="section-header">
+            <h2>Contact</h2>
+            <p>Get in touch • Collaborate • Connect</p>
+        </div>
+
+        <div class="terminal-box">
+            <div class="terminal-header">root@portfolio:~$ cat contact_info.txt</div>
+            <div class="terminal-content">
+                [*] Initiating secure communication channels...<br>
+                [+] All contact methods verified and encrypted<br>
+                [+] Response time: Usually within 24-48 hours
+            </div>
+        </div>
+
+        <div class="contact-grid" id="contact-container">
+            <!-- Contact info loaded from JSON -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 | Ethical Hacking • Security Research • CTF Enthusiast</p>
+    </footer>
+
+    <script src="matrix.js"></script>
+    <script src="animate.js"></script>
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                
+                const contactContainer = document.getElementById('contact-container');
+                const contactMethods = {
+                    email: {
+                        icon: '📧',
+                        label: 'Email',
+                        prefix: 'mailto:'
+                    },
+                    github: {
+                        icon: '💻',
+                        label: 'GitHub',
+                        prefix: ''
+                    },
+                    linkedin: {
+                        icon: '🔗',
+                        label: 'LinkedIn',
+                        prefix: ''
+                    },
+                    twitter: {
+                        icon: '🐦',
+                        label: 'Twitter',
+                        prefix: ''
+                    }
+                };
+                
+                Object.entries(data.contact).forEach(([key, value]) => {
+                    const method = contactMethods[key];
+                    if (method) {
+                        const contactDiv = document.createElement('div');
+                        contactDiv.className = 'contact-item';
+                        const href = key === 'email' ? method.prefix + value : value;
+                        contactDiv.innerHTML = `
+                            <h3>${method.icon} ${method.label}</h3>
+                            <a href="${href}" ${key !== 'email' ? 'target="_blank"' : ''}>${value}</a>
+                        `;
+                        contactContainer.appendChild(contactDiv);
+                    }
+                });
+                
+                // Observe contact items for animation
+                document.querySelectorAll('.contact-item').forEach(el => {
+                    if (typeof observer !== 'undefined') {
+                        observer.observe(el);
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                const contactContainer = document.getElementById('contact-container');
+                contactContainer.innerHTML = '<div class="contact-item"><p>Error loading contact info. Please ensure data.json exists.</p></div>';
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>

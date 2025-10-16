@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos | Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CYBERPORT</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="videos.html" class="active">Videos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-content">
+        <div class="section-header">
+            <h2>Videos</h2>
+            <p>Demonstrations • CTF writeups • Tutorials</p>
+        </div>
+
+        <div class="grid" id="videos-container">
+            <!-- Videos loaded from JSON -->
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 | Ethical Hacking • Security Research • CTF Enthusiast</p>
+    </footer>
+
+    <script src="matrix.js"></script>
+    <script src="animate.js"></script>
+    <script>
+        async function loadData() {
+            try {
+                const response = await fetch('data.json');
+                const data = await response.json();
+                
+                const videosContainer = document.getElementById('videos-container');
+                data.videos.forEach(video => {
+                    const videoDiv = document.createElement('div');
+                    videoDiv.className = 'video-item';
+                    videoDiv.innerHTML = `
+                        <video controls>
+                            <source src="${video.url}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3>${video.title}</h3>
+                        <p>${video.description}</p>
+                    `;
+                    videosContainer.appendChild(videoDiv);
+                });
+                
+                // Observe video items for animation
+                document.querySelectorAll('.video-item').forEach(el => {
+                    if (typeof observer !== 'undefined') {
+                        observer.observe(el);
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                const videosContainer = document.getElementById('videos-container');
+                videosContainer.innerHTML = '<div class="card"><p>Error loading videos. Please ensure data.json exists.</p></div>';
+            }
+        }
+        
+        loadData();
+    </script>
+</body>
+</html>
