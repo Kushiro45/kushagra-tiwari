@@ -2,10 +2,16 @@
 class InteractiveTerminal {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
+        if (!this.container) {
+            console.error('Terminal container not found:', containerId);
+            return;
+        }
+        
         this.commandHistory = [];
         this.historyIndex = -1;
         this.data = null;
         
+        console.log('Initializing terminal...');
         this.init();
         this.loadData();
     }
@@ -14,8 +20,10 @@ class InteractiveTerminal {
         try {
             const response = await fetch('data.json');
             this.data = await response.json();
+            console.log('Data loaded successfully');
         } catch (error) {
             console.error('Error loading data:', error);
+            this.printLine('<span class="terminal-error">Error: Could not load data.json</span>');
         }
     }
     
@@ -30,18 +38,25 @@ class InteractiveTerminal {
             </div>
             <div class="terminal-input-line">
                 <span class="terminal-prompt">root@portfolio:~$</span>
-                <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" />
+                <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false" autofocus />
             </div>
         `;
         
         this.output = document.getElementById('terminal-output');
         this.input = document.getElementById('terminal-input');
         
+        if (!this.input) {
+            console.error('Terminal input not found');
+            return;
+        }
+        
         this.input.addEventListener('keydown', (e) => this.handleKeyDown(e));
         this.input.focus();
         
         // Refocus input when clicking anywhere in terminal
         this.container.addEventListener('click', () => this.input.focus());
+        
+        console.log('Terminal initialized successfully');
     }
     
     handleKeyDown(e) {
@@ -304,10 +319,14 @@ class InteractiveTerminal {
     }
 }
 
-// Initialize terminal if container exists
+// Initialize terminal when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, looking for terminal container...');
     const terminalContainer = document.getElementById('interactive-terminal');
     if (terminalContainer) {
-        new InteractiveTerminal('interactive-terminal');
+        console.log('Terminal container found, initializing...');
+        window.terminal = new InteractiveTerminal('interactive-terminal');
+    } else {
+        console.error('Terminal container #interactive-terminal not found');
     }
 });
