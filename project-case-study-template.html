@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name | Cybersecurity Portfolio</title>
+    <meta name="description" content="Detailed case study of [Project Name] - A cybersecurity project.">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .case-study-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--red);
+            text-decoration: none;
+            border: 1px solid var(--red);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: var(--red);
+            color: var(--black);
+        }
+
+        .back-link::before {
+            content: '← ';
+        }
+
+        .project-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--red);
+        }
+
+        .project-title {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--gray);
+            font-size: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            background-color: rgba(238, 0, 0, 0.1);
+            color: var(--red);
+            border: 1px solid var(--red);
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: var(--red);
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--red);
+            padding-left: 1rem;
+        }
+
+        .section h2::before {
+            content: '// ';
+        }
+
+        .section p, .section li {
+            color: var(--light-gray);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .section ul, .section ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-box {
+            background-color: rgba(26, 26, 26, 0.8);
+            border-left: 4px solid var(--red);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .code-block {
+            background-color: var(--black);
+            border: 1px solid var(--red);
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-block code {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .screenshot-placeholder {
+            background-color: var(--dark-gray);
+            border: 1px solid var(--red);
+            padding: 4rem;
+            text-align: center;
+            color: var(--gray);
+            margin: 2rem 0;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--gray);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2.5rem;
+            color: var(--red);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .tech-item {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--red);
+            padding: 0.75rem 1.5rem;
+            color: var(--white);
+        }
+
+        .cta-section {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 2px solid var(--red);
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h3 {
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: var(--red);
+            border: 2px solid var(--red);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: var(--red);
+            color: var(--black);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <div class="scanline"></div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">CYBERPORT</div>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../projects.html" class="active">Projects</a></li>
+                <li><a href="../articles.html">Articles</a></li>
+                <li><a href="../videos.html">Videos</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study-content">
+        <a href="../projects.html" class="back-link">Back to Projects</a>
+
+        <div class="project-header">
+            <h1 class="project-title">Network Vulnerability Scanner</h1>
+            <div class="project-meta">
+                <div class="project-meta-item">
+                    <span>📅</span>
+                    <span>Completed: January 2025</span>
+                </div>
+                <div class="project-meta-item">
+                    <span>⏱️</span>
+                    <span>Duration: 3 months</span>
+                </div>
+                <div class="project-meta-item">
+                    <span>👤</span>
+                    <span>Role: Solo Developer</span>
+                </div>
+            </div>
+            <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Network Security</span>
+                <span class="project-tag">Penetration Testing</span>
+                <span class="project-tag">Tool Development</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>
+                The Network Vulnerability Scanner is an automated security assessment tool designed to identify 
+                potential vulnerabilities across network infrastructure. Built with Python, this tool streamlines 
+                the reconnaissance and vulnerability detection phases of penetration testing engagements.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>The Problem</h2>
+            <p>
+                Manual vulnerability scanning is time-consuming and prone to human error. Security professionals 
+                needed a reliable, automated tool that could:
+            </p>
+            <ul>
+                <li>Quickly identify open ports and services across large networks</li>
+                <li>Detect common misconfigurations and outdated software versions</li>
+                <li>Generate comprehensive reports with actionable remediation steps</li>
+                <li>Integrate seamlessly into existing security workflows</li>
+            </ul>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">500+</div>
+                <div class="metric-label">Networks Scanned</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">95%</div>
+                <div class="metric-label">Detection Accuracy</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">10x</div>
+                <div class="metric-label">Faster Than Manual</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Technical Implementation</h2>
+            
+            <h3>Technology Stack</h3>
+            <div class="tech-stack">
+                <div class="tech-item">Python 3.9+</div>
+                <div class="tech-item">Scapy</div>
+                <div class="tech-item">Nmap</div>
+                <div class="tech-item">SQLite</div>
+                <div class="tech-item">Threading</div>
+                <div class="tech-item">Argparse</div>
+            </div>
+
+            <h3>Core Features</h3>
+            <div class="highlight-box">
+                <h3>1. Multi-threaded Port Scanning</h3>
+                <p>Implemented concurrent scanning to improve performance by 10x compared to sequential scanning.</p>
+            </div>
+
+            <div class="code-block">
+                <code>
+import threading
+from queue import Queue
+
+def port_scanner(ip, port):
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        result = sock.connect_ex((ip, port))
+        if result == 0:
+            return port
+    except:
+        pass
+    finally:
+        sock.close()
+
+# Multi-threaded implementation
+def threaded_scan(target_ip, port_range):
+    queue = Queue()
+    threads = []
+    
+    for port in port_range:
+        queue.put(port)
+    
+    for _ in range(100):  # 100 concurrent threads
+        thread = threading.Thread(target=worker, args=(target_ip, queue))
+        thread.start()
+        threads.append(thread)
+                </code>
+            </div>
+
+            <div class="highlight-box">
+                <h3>2. Service Detection & Version Identification</h3>
+                <p>Fingerprinting services to identify outdated or vulnerable versions.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>3. CVE Database Integration</h3>
+                <p>Cross-references detected services with known vulnerabilities from the CVE database.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Challenges & Solutions</h2>
+            
+            <div class="highlight-box">
+                <h3>Challenge: False Positives</h3>
+                <p><strong>Problem:</strong> Initial version generated many false positive alerts.</p>
+                <p><strong>Solution:</strong> Implemented a validation layer that performs secondary checks on flagged services, reducing false positives by 70%.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Challenge: Network Performance Impact</h3>
+                <p><strong>Problem:</strong> Aggressive scanning caused network congestion.</p>
+                <p><strong>Solution:</strong> Added configurable throttling options and adaptive rate limiting based on network response times.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3>Challenge: Large-Scale Reporting</h3>
+                <p><strong>Problem:</strong> Reports for enterprise networks were overwhelming.</p>
+                <p><strong>Solution:</strong> Implemented severity-based filtering and executive summary generation with visual dashboards.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Results & Impact</h2>
+            <ul>
+                <li><strong>Time Savings:</strong> Reduced vulnerability assessment time from 2 days to 4 hours for medium-sized networks</li>
+                <li><strong>Detection Rate:</strong> Successfully identified 95% of known vulnerabilities in controlled test environments</li>
+                <li><strong>Adoption:</strong> Used by local cybersecurity community and shared on GitHub with 150+ stars</li>
+                <li><strong>Real-World Application:</strong> Helped identify critical vulnerabilities in 3 production environments</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Key Learnings</h2>
+            <ul>
+                <li>Importance of optimizing network operations for performance without sacrificing accuracy</li>
+                <li>Value of comprehensive error handling in network programming</li>
+                <li>Balancing between thoroughness and practical usability in security tools</li>
+                <li>Significance of clear, actionable reporting for non-technical stakeholders</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h3>Interested in This Project?</h3>
+            <p>Check out the code, try it yourself, or get in touch to discuss security automation.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/yourusername/vuln-scanner" target="_blank" class="cta-btn">View on GitHub</a>
+                <a href="../contact.html" class="cta-btn">Contact Me</a>
+            </div>
+        </div>
+
+        <a href="../projects.html" class="back-link">Back to Projects</a>
+    </div>
+
+    <footer>
+        <p>© 2025 | Ethical Hacking • Security Research • CTF Enthusiast</p>
+    </footer>
+
+    <script src="../matrix.js"></script>
+</body>
+</html>

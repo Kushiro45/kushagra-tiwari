@@ -491,6 +491,14 @@ a:focus, button:focus {
     max-height: 500px;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.6s;
+}
+
+#interactive-terminal.animate {
+    opacity: 1;
+    transform: scale(1);
 }
 
 .terminal-output {
@@ -622,7 +630,6 @@ a:focus, button:focus {
     border-radius: 3px;
 }
 
-
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -643,5 +650,9 @@ a:focus, button:focus {
     
     .terminal-text {
         font-size: 1rem;
+    }
+    
+    .filter-container {
+        flex-direction: column;
     }
 }
