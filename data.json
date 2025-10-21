@@ -1,4 +1,25 @@
 {
+  "featured": [
+    {
+      "category": "[PROJECT]",
+      "meta": "RECENT",
+      "title": "Secure Netra",
+      "description": "Engineered a full-stack, secure NVR platform to protect CCTV infrastructure using a React-based SOC dashboard and a Node.js backend. Implemented a multi-layered defense with a real-time IDS/IPS, Role-Based Access Control (RBAC), and end-to-end TLS encryption."
+      },
+    {
+      "category": "[CTF]",
+      "meta": "TOP 100",
+      "title": "PicoCTF 2024",
+      "description": "Achieved top 100 ranking among 10,000+ participants. Solved 45+ challenges across cryptography, binary exploitation, reverse engineering, web exploitation, and forensics categories. Specialized in advanced binary pwn and crypto challenges."
+    },
+    {
+      "category": "[ARTICLE]",
+      "meta": "NEW",
+      "title": "AI on the Case: Revolutionizing Cyber Crime Investigation",
+      "description": " The future of cybercrime investigation lies not in replacing human intuition, but in forging a powerful partnership between investigator and machin, a collaboration poised to redefine digital justice."
+    }
+  ],
+  
   "about": "I'm a cybersecurity student passionate about ethical hacking, penetration testing, and securing digital infrastructure. My journey into security began with competitive CTF challenges and has evolved into hands-on research and tool development. I specialize in web application security, network penetration testing, and binary exploitation. Currently seeking opportunities to contribute to the security community while continuing to expand my knowledge in offensive security and vulnerability research.",
   
   "skills": [
