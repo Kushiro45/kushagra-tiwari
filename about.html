@@ -71,6 +71,7 @@
 
     <script src="matrix.js"></script>
     <script src="animate.js"></script>
+    <script src="terminal.js"></script>
     <script>
         async function loadData() {
             try {
@@ -104,10 +105,14 @@
                 });
                 
                 // Animate elements
-                document.querySelectorAll('.card, .skill-tag').forEach(el => {
-                    observer.observe(el);
+                document.querySelectorAll('.card, .skill-tag, #interactive-terminal').forEach(el => {
+                    if (typeof observer !== 'undefined') {
+                        observer.observe(el);
+                    }
                 });
-                
+
+                console.log('✅ About page data loaded successfully');
+
             } catch (error) {
                 console.error('Error loading data:', error);
             }
