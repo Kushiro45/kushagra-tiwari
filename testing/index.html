@@ -83,33 +83,35 @@
     <script src="animate.js"></script>
     <script src="main.js"></script>
     <script>
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const initText = document.getElementById('init-text');
-                const heroTerminal = document.getElementById('hero-terminal');
-                
-                if (initText && heroTerminal) {
-                    // Change text to "Done"
-                    initText.innerHTML = '$ initializing portfolio... <span style="color: #00ff00;">Done!</span>';
-                    
-                    // Wait a moment then show terminal
-                    setTimeout(() => {
-                        heroTerminal.style.display = 'block';
-                        heroTerminal.style.opacity = '0';
-                        heroTerminal.style.transform = 'translateY(20px)';
-                        heroTerminal.style.transition = 'all 0.6s ease';
-                        
-                        // Initialize terminal
-                        if (typeof InteractiveTerminal !== 'undefined') {
-                            new InteractiveTerminal('interactive-terminal');
-                        }
-                        
-                        setTimeout(() => {
-                            heroTerminal.style.opacity = '1';
-                            heroTerminal.style.transform = 'translateY(0)';
-                        }, 100);
-                    }, 800);
+        // Wait for terminal.js to load and initialize
+        window.addEventListener('load', function() {
+            console.log('Page loaded, starting initialization sequence...');
+            
+            const initText = document.getElementById('init-text');
+            const terminalWrapper = document.getElementById('hero-terminal-wrapper');
+            
+            // Step 1: Show initialization (2 seconds)
+            setTimeout(function() {
+                if (initText) {
+                    initText.innerHTML = '$ initializing portfolio... <span style="color: #00ff00; font-weight: bold;">Done!</span>';
+                    console.log('Initialization complete, showing terminal...');
                 }
+                
+                // Step 2: Show terminal after another 1 second
+                setTimeout(function() {
+                    if (terminalWrapper) {
+                        terminalWrapper.style.display = 'block';
+                        terminalWrapper.style.opacity = '0';
+                        terminalWrapper.style.transform = 'translateY(20px)';
+                        terminalWrapper.style.transition = 'all 0.8s ease';
+                        
+                        // Fade in
+                        setTimeout(function() {
+                            terminalWrapper.style.opacity = '1';
+                            terminalWrapper.style.transform = 'translateY(0)';
+                        }, 50);
+                    }
+                }, 1000);
             }, 2000);
         });
     </script>
