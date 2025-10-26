@@ -106,8 +106,14 @@
       "readTime": "12 min read",
       "excerpt": " The future of cybercrime investigation lies not in replacing human intuition, but in forging a powerful partnership between investigator and machin, a collaboration poised to redefine digital justice.",
       "link": "./articles/article2.html"
+    },
+    {
+      "title": "The Art of the Digital Detox: A Guide to Mindful Tech Use",
+      "date": "Oct 26, 2025",
+      "readTime": "9 min read",
+      "excerpt": "Learning to consciously disconnect is a critical life skill. This guide explores how a digital detox can reduce stress, improve focus, and help you build a more present, balanced life in a hyper-connected world.",
+      "link": "./articles/article3.html"
     }
-
   ],
   
   "videos": [
@@ -131,6 +137,7 @@
   "contact": {
     "email": "kushagra.17992@sakec.ac.in",
     "github": "https://github.com/Kushiro45",
-    "linkedin": "https://www.linkedin.com/in/kushagra-tiwari-8b942028b/"
+    "linkedin": "https://www.linkedin.com/in/kushagra-tiwari-8b942028b/",
+    "phone": "+91 8355925946"
   }
 }
