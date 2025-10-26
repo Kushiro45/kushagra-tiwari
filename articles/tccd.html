@@ -148,20 +148,20 @@ padding: 8rem 2rem 4rem;
         </p>
         <p>Formally, a Finite Automaton is defined by five components:</p>
         <ul>
-            <li>A finite set of **states** (Q)</li>
-            <li>A finite set of input symbols, called the **alphabet** (Σ)</li>
-            <li>A **start state** (q₀) where the machine begins</li>
-            <li>A set of **accepting states** (F), or winning states</li>
-            <li>A **transition function** (δ) that defines the rules for moving from one state to another based on an input symbol</li>
+            <li>A finite set of states (Q)</li>
+            <li>A finite set of input symbols, called the alphabet (Σ)</li>
+            <li>A start state (q₀) where the machine begins</li>
+            <li>A set of accepting states (F), or winning states</li>
+            <li>A transition function (δ) that defines the rules for moving from one state to another based on an input symbol</li>
         </ul>
 
         <h3>A Simple Diagrammatic Example</h3>
         <p>Let's design an FA that recognizes strings containing the pattern "cat".</p>
         <ul>
-            <li>**State 0 (Start):** We haven't seen any part of the pattern yet.</li>
-            <li>**State 1:** We have just seen the character 'c'.</li>
-            <li>**State 2:** We have just seen the sequence 'ca'.</li>
-            <li>**State 3 (Accepting State):** We have seen the full sequence 'cat'. Once we reach this state, we stay here, because the condition (containing "cat") has been met.</li>
+            <li>State 0 (Start): We haven't seen any part of the pattern yet.</li>
+            <li>State 1: We have just seen the character 'c'.</li>
+            <li>State 2: We have just seen the sequence 'ca'.</li>
+            <li>State 3 (Accepting State): We have seen the full sequence 'cat'. Once we reach this state, we stay here, because the condition (containing "cat") has been met.</li>
         </ul>
         <p>The transitions would be: From State 0, a 'c' takes us to State 1. From State 1, an 'a' takes us to State 2. From State 2, a 't' takes us to the accepting State 3. Any other character at any point might reset us back to State 0 (or a different state depending on the character). This state-based "memory" is what makes FAs perfect for pattern matching.</p>
 
