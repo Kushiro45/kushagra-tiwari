@@ -3,12 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kushagra Tiwari | Cybersecurity Portfolio</title>
-    <meta name="description" content="Portfolio of a cybersecurity professional specializing in penetration testing, network security, CTF competitions, and security research.">
-    <meta property="og:title" content="Kushagra Tiwari | Cybersecurity Portfolio">
-    <meta property="og:description" content="Exploring penetration testing, security research, and CTF challenges.">
-    <meta property="og:type" content="website">
-    <link rel="stylesheet" href="styles.css">
+    <title>Cybersecurity Portfolio | Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --red: #EE0000;
+            --dark-red: #CC0000;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --gray: #2a2a2a;
+            --white: #ffffff;
+            --light-gray: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Matrix rain background */
+        #matrix-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 1.5rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 2px solid var(--red);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--red);
+            font-weight: bold;
+            text-shadow: 0 0 10px var(--red);
+        }
+
+        .logo::before {
+            content: '[ ';
+        }
+
+        .logo::after {
+            content: ' ]';
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        nav a::before {
+            content: '> ';
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 1;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--red);
+            border: 1px solid var(--red);
+            background-color: rgba(238, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: var(--red);
+            text-shadow: 0 0 20px var(--red), 0 0 40px var(--red);
+            position: relative;
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 90%, 100% { transform: translate(0); }
+            91% { transform: translate(-2px, 2px); }
+            92% { transform: translate(2px, -2px); }
+            93% { transform: translate(-2px, -2px); }
+            94% { transform: translate(2px, 2px); }
+        }
+
+        .terminal-text {
+            font-size: 1.5rem;
+            color: var(--light-gray);
+            margin-bottom: 2rem;
+        }
+
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: var(--red);
+            border: 2px solid var(--red);
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--red);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        .cta-button:hover {
+            color: var(--black);
+        }
+
+        /* Scanline effect */
+        .scanline {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(238, 0, 0, 0.05) 51%,
+                transparent 52%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 999;
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100vh; }
+        }
+
+        /* Content Section */
+        .content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s;
+        }
+
+        .section-header.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--red);
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::before {
+            content: '// ';
+            color: var(--dark-red);
+        }
+
+        .section-header p {
+            color: var(--light-gray);
+            font-size: 1.1rem;
+            margin-left: 3rem;
+        }
+
+        /* Grid layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--gray);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 0;
+            background-color: var(--red);
+            transition: height 0.4s;
+        }
+
+        .card:hover::before {
+            height: 100%;
+        }
+
+        .card:hover {
+            border-color: var(--red);
+            box-shadow: 0 0 30px rgba(238, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: var(--red);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3::before {
+            content: '> ';
+        }
+
+        .card p {
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+
+        .card-meta {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Terminal box */
+        .terminal-box {
+            background-color: var(--black);
+            border: 1px solid var(--red);
+            padding: 2rem;
+            margin: 3rem 0;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 0 20px rgba(238, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.6s;
+        }
+
+        .terminal-box.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .terminal-header {
+            color: var(--red);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .terminal-content {
+            color: var(--light-gray);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(26, 26, 26, 0.95);
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid var(--red);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .terminal-text {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <canvas id="matrix-canvas"></canvas>
