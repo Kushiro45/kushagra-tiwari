@@ -127,7 +127,14 @@
        "readTime": "10 min read",
        "excerpt": "This article breaks down the essential concepts of data warehousing and data mining. Learn how organizations transform raw, chaotic data into a structured asset (the warehouse) and then use powerful techniques (mining) to uncover hidden patterns, predict trends, and make smarter, data-driven decisions.",
        "link": "./articles/dwm.html"
-     }
+     },
+     {
+        "title": "Finite Automata in Text Search: Powering Efficient Pattern Matching",
+        "date": "Oct 26, 2025",
+        "readTime": "8 min read",
+        "excerpt": "Finite automata are the unsung heroes behind efficient text search and pattern matching algorithms. This article explores how these mathematical models enable rapid searching in large text corpora, powering everything from search engines to DNA sequence analysis.",
+        "link": "./articles/tccd.html"
+    }
   ],
   
   "videos": [
