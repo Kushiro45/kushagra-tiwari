@@ -141,6 +141,13 @@
         "readTime": "12 min read",
         "excerpt": "Explore the transformative impact of data mining across key industries. This article details how healthcare uses it for predictive diagnosis, banking for fraud detection, and retail for customer personalization, turning raw data into critical business intelligence.",
         "link": "./articles/dwm2.html"
+    },
+    {
+        "title": "Building Blueprints: Understanding Software Development Life Cycle Models",
+        "date": "Oct 26, 2025",
+        "readTime": "12 min read",
+        "excerpt": "Explore the foundational frameworks of software engineering. This article breaks down Software Development Life Cycle (SDLC) models, from the classic Waterfall to the modern Agile approach, explaining their concepts, applications, and why choosing the right model is critical for project success.",
+        "link": "./articles/SEPM.html"
     }
   ],
   
