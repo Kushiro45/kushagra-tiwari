@@ -82,37 +82,5 @@
     <script src="matrix.js"></script>
     <script src="animate.js"></script>
     <script src="main.js"></script>
-    <script>
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const initText = document.getElementById('init-text');
-                const heroTerminal = document.getElementById('hero-terminal');
-                
-                if (initText && heroTerminal) {
-                    // Change text to "Done"
-                    initText.innerHTML = '$ initializing portfolio... <span style="color: #00ff00;">Done!</span>';
-                    
-                    // Wait a moment then show terminal
-                    setTimeout(() => {
-                        heroTerminal.style.display = 'block';
-                        heroTerminal.style.opacity = '0';
-                        heroTerminal.style.transform = 'translateY(20px)';
-                        heroTerminal.style.transition = 'all 0.6s ease';
-                        
-                        // Initialize terminal
-                        if (typeof InteractiveTerminal !== 'undefined') {
-                            new InteractiveTerminal('interactive-terminal');
-                        }
-                        
-                        setTimeout(() => {
-                            heroTerminal.style.opacity = '1';
-                            heroTerminal.style.transform = 'translateY(0)';
-                        }, 100);
-                    }, 800);
-                }
-            }, 2000);
-        });
-    </script>
-    <script src="terminal.js"></script>
 </body>
 </html>
