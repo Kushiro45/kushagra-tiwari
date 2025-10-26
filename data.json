@@ -113,7 +113,14 @@
       "readTime": "9 min read",
       "excerpt": "Learning to consciously disconnect is a critical life skill. This guide explores how a digital detox can reduce stress, improve focus, and help you build a more present, balanced life in a hyper-connected world.",
       "link": "./articles/sfblarticle.html"
-    }
+    },
+    {
+      "title": "Decoding 5G Security: Navigating the Challenges of a Hyper-Connected World",
+      "date": "Oct 26, 2025",
+      "readTime": "10 min read",
+      "excerpt": "5G promises a revolutionary leap in connectivity, but its software-defined nature introduces a new and complex threat landscape. This article explores the core security challenges of 5G, from its expanded attack surface to supply chain risks, and outlines the essential solutions needed to secure our hyper-connected future.",
+      "link": "./articles/5G.html"
+     }
   ],
   
   "videos": [
