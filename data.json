@@ -134,6 +134,13 @@
         "readTime": "8 min read",
         "excerpt": "Finite automata are the unsung heroes behind efficient text search and pattern matching algorithms. This article explores how these mathematical models enable rapid searching in large text corpora, powering everything from search engines to DNA sequence analysis.",
         "link": "./articles/tccd.html"
+    },
+    {
+        "title": "Unlocking Insights: Real-World Applications of Data Mining in Healthcare, Banking, and Retail",
+        "date": "Oct 26, 2025",
+        "readTime": "12 min read",
+        "excerpt": "Explore the transformative impact of data mining across key industries. This article details how healthcare uses it for predictive diagnosis, banking for fraud detection, and retail for customer personalization, turning raw data into critical business intelligence.",
+        "link": "./articles/dwm2.html"
     }
   ],
   
